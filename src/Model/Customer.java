@@ -23,7 +23,6 @@ public class Customer {
      */
     public void setFirstName(String name){
         this.firstName = name;
-        return;
     }
 
     /**
@@ -31,7 +30,6 @@ public class Customer {
      */
     public void setLastName(String name){
         this.lastName = name;
-        return;
     }
 
     /**

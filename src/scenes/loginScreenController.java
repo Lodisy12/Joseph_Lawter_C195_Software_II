@@ -8,11 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Locale;
 
-public class login_screen_controller {
+public class loginScreenController {
     public Button login_button;
     public TextField user_name_text_field;
     public TextField password_text_field;
@@ -40,9 +39,8 @@ public class login_screen_controller {
             if (username.equals("Test")) {
                 error_field.setText("");
                 if (password.equals("Test")) {
-                    System.out.println("add button clicked");
                     Parent root = FXMLLoader.load(getClass().getResource(
-                            "/scenes/second_scene.fxml"));
+                            "/scenes/mainScreen.fxml"));
                     Stage stage = (Stage)((Button) actionEvent.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root,850,600);
                     stage.setTitle("second scene");

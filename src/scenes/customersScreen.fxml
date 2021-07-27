@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="489.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.customersScreenController">
+   <children>
+      <Button fx:id="setButton" layoutX="719.0" layoutY="454.0" mnemonicParsing="false" text="Update Customer" />
+      <RadioButton layoutX="14.0" layoutY="400.0" mnemonicParsing="false" text="New Customer">
+         <toggleGroup>
+            <ToggleGroup fx:id="CustomerToggleGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="15.0" layoutY="430.0" mnemonicParsing="false" text="Update Customer"
+                   toggleGroup="$CustomerToggleGroup"/>
+      <RadioButton layoutX="18.0" layoutY="458.0" mnemonicParsing="false" text="Delete Customer" toggleGroup="$CustomerToggleGroup" />
+      <TextField layoutX="205.0" layoutY="396.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label layoutX="131.0" layoutY="400.0" text="Customer ID" />
+      <Label layoutX="137.0" layoutY="430.0" text="First Name" />
+      <TextField layoutX="205.0" layoutY="426.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="137.0" layoutY="461.0" text="Last Name" />
+      <TextField layoutX="205.0" layoutY="457.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="383.0" layoutY="461.0" text="St. address, City" />
+      <TextField layoutX="476.0" layoutY="457.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="367.0" layoutY="430.0" text="First Level Devision" />
+      <Label layoutX="636.0" layoutY="429.0" text="Phone Number" />
+      <TextField layoutX="722.0" layoutY="421.0" prefHeight="25.0" prefWidth="150.0" />
+      <ComboBox layoutX="474.0" layoutY="426.0" prefWidth="150.0" />
+      <Label layoutX="425.0" layoutY="400.0" text="Country" />
+      <ComboBox layoutX="475.0" layoutY="396.0" prefWidth="150.0" />
+      <Label layoutX="657.0" layoutY="397.0" text="postal code" />
+      <TextField layoutX="722.0" layoutY="389.0" prefHeight="25.0" prefWidth="150.0" />
+      <TableView layoutX="14.0" layoutY="14.0" prefHeight="362.0" prefWidth="861.0">
+        <columns>
+          <TableColumn prefWidth="40.0" text="ID" />
+          <TableColumn prefWidth="130.0" text="Name" />
+            <TableColumn prefWidth="98.0" text="Country" />
+            <TableColumn prefWidth="78.0" text="State" />
+            <TableColumn prefWidth="197.0" text="Address" />
+            <TableColumn prefWidth="146.0" text="Postal Code" />
+            <TableColumn prefWidth="171.0" text="Phone Number" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -21,7 +21,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         Locale.setDefault(new Locale("fr"));
-        Parent root = FXMLLoader.load(getClass().getResource("../scenes/login_screen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../scenes/loginScreen.fxml"));
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 450, 300));
         primaryStage.show();
