@@ -63,6 +63,13 @@ public class loginScreenController {
             if (username.equals("Test")){
                 error_field.setText("");
                 if (password.equals("Test")){
+                    Parent root = FXMLLoader.load(getClass().getResource(
+                            "/scenes/mainScreen.fxml"));
+                    Stage stage = (Stage)((Button) actionEvent.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root,850,600);
+                    stage.setTitle("second scene");
+                    stage.setScene(scene);
+                    stage.show();
                     System.out.println("Login Successful");
                     error_field.setText("");
                     }
