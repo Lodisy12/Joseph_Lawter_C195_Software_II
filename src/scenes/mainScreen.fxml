@@ -2,10 +2,154 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="411.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.mainScreenController">
-   <children>
-      <Button fx:id="customerButton" layoutX="14.0" layoutY="93.0" mnemonicParsing="false" onAction="#goToCustomers" prefHeight="39.0" prefWidth="119.0" text="Customers" />
-   </children>
-</AnchorPane>
+<TabPane prefHeight="720.0" prefWidth="1041.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.mainScreenController">
+  <tabs>
+      <Tab text="Appointments">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="1085.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="7.0" text="Search">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="appSearch" layoutX="67.0" layoutY="8.0" prefHeight="25.0" prefWidth="205.0" promptText="ID, Date, or Name" />
+                  <TableView fx:id="appTableView" layoutX="14.0" layoutY="34.0" prefHeight="401.0" prefWidth="1020.0">
+                     <columns>
+                        <TableColumn fx:id="appIdCol" prefWidth="46.0" text="App ID" />
+                        <TableColumn fx:id="appTitleCol" prefWidth="116.0" text="Title" />
+                        <TableColumn fx:id="appDescriptionCol" prefWidth="149.0" text="Description" />
+                        <TableColumn fx:id="appLocationCol" prefWidth="103.0" text="Location" />
+                        <TableColumn fx:id="appContactCol" prefWidth="151.0" text="Contact" />
+                        <TableColumn fx:id="appTypeCol" text="Type" />
+                        <TableColumn fx:id="appStartCol" prefWidth="152.0" text="Start date/time" />
+                        <TableColumn fx:id="appEndCol" prefWidth="142.0" text="End date/time" />
+                        <TableColumn fx:id="appCustIdCol" text="Cust ID" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="41.0" layoutY="507.0" text="Title" />
+                  <TextField fx:id="appTitleField" layoutX="71.0" layoutY="503.0" />
+                  <RadioButton fx:id="appMonthToggle" layoutX="291.0" layoutY="12.0" mnemonicParsing="false" selected="true" text="Month">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="appTableToggleGroup" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="appWeekToggle" layoutX="360.0" layoutY="12.0" mnemonicParsing="false" text="Week" toggleGroup="$appTableToggleGroup" />
+                  <RadioButton fx:id="appCreateToggle" layoutX="15.0" layoutY="448.0" mnemonicParsing="false" selected="true" text="Create">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="appUpdateToggleGroup" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="appDeleteToggle" layoutX="156.0" layoutY="448.0" mnemonicParsing="false" text="Delete" toggleGroup="$appUpdateToggleGroup" />
+                  <RadioButton fx:id="appUpdateToggle" layoutX="81.0" layoutY="448.0" mnemonicParsing="false" text="Update" toggleGroup="$appUpdateToggleGroup" />
+                  <Label layoutX="15.0" layoutY="477.0" text="App ID" />
+                  <TextField fx:id="appIDField" editable="false" layoutX="71.0" layoutY="473.0" opacity="0.5" prefHeight="25.0" prefWidth="115.0" text="disabled Auto gen" />
+                  <Label layoutX="10.0" layoutY="538.0" text="Description" />
+                  <TextField fx:id="appDescriptionField" layoutX="71.0" layoutY="534.0" />
+                  <Label layoutX="244.0" layoutY="506.0" text="Location" />
+                  <TextField fx:id="appLocationField" layoutX="297.0" layoutY="502.0" />
+                  <Label layoutX="251.0" layoutY="537.0" text="Contact" />
+                  <Label layoutX="260.0" layoutY="571.0" text="type" />
+                  <Label layoutX="473.0" layoutY="507.0" text="Start Date" />
+                  <Label layoutX="475.0" layoutY="537.0" text="End Date" />
+                  <Label layoutX="459.0" layoutY="571.0" text="Customer ID" />
+                  <Button fx:id="appCreateUpdateDeleteButton" layoutX="27.0" layoutY="629.0" mnemonicParsing="false" onAction="#appCreateUpdateDelete" prefHeight="25.0" prefWidth="106.0" text="Create/Update/Delete" />
+                  <ComboBox fx:id="appTypeCombo" layoutX="297.0" layoutY="568.0" prefWidth="150.0" />
+                  <Label layoutX="722.0" layoutY="507.0" text="Start Time" />
+                  <Label layoutX="718.0" layoutY="537.0" text="End date" />
+                  <Label layoutX="685.0" layoutY="571.0" text="Customer Name" />
+                  <DatePicker fx:id="appStartDateDatePicker" layoutX="529.0" layoutY="503.0" />
+                  <DatePicker fx:id="appEndDateDatePicker" layoutX="529.0" layoutY="533.0" />
+                  <ComboBox fx:id="appContactCombo" layoutX="297.0" layoutY="534.0" prefWidth="150.0" />
+                  <ComboBox layoutX="529.0" layoutY="568.0" onAction="#appChooseCustID" prefHeight="25.0" prefWidth="150.0" />
+                  <ComboBox fx:id="appCustomerNameCombo" layoutX="776.0" layoutY="567.0" onAction="#appChooseCustName" prefWidth="150.0" />
+                  <ComboBox fx:id="appStartTimeCombo" layoutX="776.0" layoutY="503.0" prefWidth="150.0" />
+                  <ComboBox fx:id="appEndTimeCombo" layoutX="776.0" layoutY="534.0" prefWidth="150.0" />
+                  <Label layoutX="272.0" layoutY="452.0" text="Upcoming Appointments:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="appUpcomingAppointmentsField" editable="false" layoutX="484.0" layoutY="443.0" prefHeight="45.0" prefWidth="441.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Customers">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="717.0" prefWidth="991.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="7.0" text="Search">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="67.0" layoutY="8.0" prefHeight="25.0" prefWidth="205.0" promptText="ID, first name, last name" />
+                  <TableView fx:id="custTableView" layoutX="14.0" layoutY="34.0" prefHeight="401.0" prefWidth="986.0">
+                    <columns>
+                      <TableColumn fx:id="custIdCol" prefWidth="46.0" text="Cust ID" />
+                        <TableColumn fx:id="custFirstNameCol" prefWidth="124.0" text="First Name" />
+                        <TableColumn fx:id="custLastNameCol" prefWidth="141.0" text="Last Name" />
+                        <TableColumn fx:id="custAddressCol" prefWidth="103.0" text="Address" />
+                        <TableColumn fx:id="custStateCol" prefWidth="151.0" text="1st level division" />
+                        <TableColumn fx:id="custCountryCol" prefWidth="138.0" text="Country" />
+                        <TableColumn fx:id="custPhoneCol" prefWidth="134.0" text="Phone Number" />
+                        <TableColumn fx:id="custPostalCodeCol" prefWidth="148.0" text="Postal Code" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="12.0" layoutY="507.0" text="First Name" />
+                  <TextField layoutX="71.0" layoutY="503.0" />
+                  <RadioButton layoutX="15.0" layoutY="448.0" mnemonicParsing="false" text="Create" />
+                  <RadioButton layoutX="156.0" layoutY="448.0" mnemonicParsing="false" text="Delete" />
+                  <RadioButton layoutX="81.0" layoutY="448.0" mnemonicParsing="false" text="Update" />
+                  <Label layoutX="7.0" layoutY="477.0" text="Customer ID" />
+                  <TextField editable="false" layoutX="71.0" layoutY="473.0" opacity="0.5" prefHeight="25.0" prefWidth="115.0" text="disabled Auto gen" />
+                  <Label layoutX="10.0" layoutY="538.0" text="Last Name" />
+                  <TextField layoutX="71.0" layoutY="534.0" />
+                  <Label layoutX="244.0" layoutY="506.0" text="Address" />
+                  <TextField layoutX="297.0" layoutY="502.0" />
+                  <Label layoutX="251.0" layoutY="537.0" text="Country" />
+                  <Label layoutX="199.0" layoutY="572.0" text="1st Level Division" />
+                  <Label layoutX="507.0" layoutY="507.0" text="City" />
+                  <Label layoutX="470.0" layoutY="537.0" text="Postal Code" />
+                  <Label layoutX="454.0" layoutY="571.0" text="Phone Number" />
+                  <Button layoutX="27.0" layoutY="629.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Create/Update/Delete" />
+                  <ComboBox layoutX="297.0" layoutY="568.0" prefWidth="150.0" />
+                  <ComboBox layoutX="297.0" layoutY="534.0" prefWidth="150.0" />
+                  <TextField layoutX="539.0" layoutY="502.0" />
+                  <TextField layoutX="539.0" layoutY="534.0" />
+                  <TextField layoutX="539.0" layoutY="567.0" promptText="###-###-####" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Reports">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="717.0" prefWidth="991.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="7.0" text="Search">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="67.0" layoutY="8.0" prefHeight="25.0" prefWidth="205.0" promptText="ID, first name, last name" />
+                  <TableView layoutX="14.0" layoutY="34.0" prefHeight="627.0" prefWidth="986.0">
+                     <columns>
+                        <TableColumn prefWidth="81.0" text="Cust ID" />
+                        <TableColumn prefWidth="89.0" text="First Name" />
+                        <TableColumn prefWidth="141.0" text="Last Name" />
+                        <TableColumn prefWidth="103.0" text="Address" />
+                        <TableColumn prefWidth="151.0" text="1st level division" />
+                        <TableColumn prefWidth="138.0" text="Country" />
+                        <TableColumn prefWidth="134.0" text="Phone Number" />
+                        <TableColumn prefWidth="148.0" text="Postal Code" />
+                     </columns>
+                  </TableView>
+                  <ComboBox layoutX="300.0" layoutY="8.0" prefHeight="25.0" prefWidth="177.0" />
+                  <ComboBox layoutX="507.0" layoutY="8.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
