@@ -66,7 +66,7 @@ public class loginScreenController {
                     Parent root = FXMLLoader.load(getClass().getResource(
                             "/scenes/mainScreen.fxml"));
                     Stage stage = (Stage)((Button) actionEvent.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root,850,600);
+                    Scene scene = new Scene(root,1000,800);
                     stage.setTitle("second scene");
                     stage.setScene(scene);
                     stage.show();
